@@ -12,7 +12,7 @@ app.use(express.json({ limit: '50mb' })); // Allows parsing larger JSON payloads
 
 // Connect to MongoDB
 // Use the environment variable, but fallback to the local string if it fails
-const mongoURI = process.env.MONGO_URI || 'mongodb+srv://PrathvirajBhure:Prathviraj@1523@smartattendancecluster.kp32zjk.mongodb.net/smart_attendance?appName=SmartAttendanceCluster';
+const mongoURI = process.env.MONGO_URI || 'mongodb+srv://PrathvirajBhure:Prathviraj%401523@smartattendancecluster.kp32zjk.mongodb.net/smart_attendance?appName=SmartAttendanceCluster';
 
 mongoose.connect(mongoURI)
     .then(() => console.log('MongoDB connected successfully'))
