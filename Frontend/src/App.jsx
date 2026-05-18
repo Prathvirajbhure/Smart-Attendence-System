@@ -53,7 +53,7 @@ export default function App() {
 
   const fetchStudents = async () => {
     try {
-      const res = await axios.get('http://localhost:5001/api/students');
+      const res = await axios.get('https://smart-attendence-system-1-y8g4.onrender.com/api/students');
       setDbStudents(res.data);
       setStatusMessage('System Ready. Position your face in front of the camera.');
     } catch (err) {
@@ -165,7 +165,7 @@ export default function App() {
     if (bestMatch && lowestDistance < 0.6) {
       try {
         setStatusMessage(`Matching match found: ${bestMatch.name}. Saving entry...`);
-        const res = await axios.post('http://localhost:5001/api/attendance', { studentId: bestMatch.studentId });
+        const res = await axios.post('https://smart-attendence-system-1-y8g4.onrender.com/api/attendance', { studentId: bestMatch.studentId });
         setStatusMessage(res.data.message || 'Attendance completed successfully.');
       } catch (err) {
         setStatusMessage(err.response?.data?.message || err.response?.data?.error || 'Network logging mismatch.');
@@ -206,7 +206,7 @@ export default function App() {
 
       const descriptorArray = Array.from(detection.descriptor);
 
-      await axios.post('http://localhost:5001/api/register', {
+      await axios.post('https://smart-attendence-system-1-y8g4.onrender.com/api/register', {
         studentId: regId,
         name: regName,
         faceDescriptor: descriptorArray
